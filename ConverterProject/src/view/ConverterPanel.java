@@ -12,6 +12,8 @@ public class ConverterPanel extends JPanel {
 	
 	public ConverterPanel() {
 		setTextColors();
+		orangeArea.setEditable(false);
+		greenArea.setEditable(false);
 		add(greenArea);
 		add(orangeArea);
 		add(yellowArea);
