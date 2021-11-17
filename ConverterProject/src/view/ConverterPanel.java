@@ -1,16 +1,19 @@
 package view;
 
-import javax.swing.*;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import java.awt.*;
 
-public class ConverterPanel extends JPanel{
+public class ConverterPanel extends JPanel {
+	JTextArea greenArea = new JTextArea(200,200);
+	JTextArea yellowArea = new JTextArea(200,200);
+	JTextArea orangeArea = new JTextArea(200,200);
 	
 	public ConverterPanel() {
-		super(null);
-		//super.setBackground(new Color(112, 176, 49));
-		//uiFont = new Font("UI", Font.BOLD, 15);
+		add(greenArea);
+		add(yellowArea);
+		add(orangeArea);
 	}
-
 	
 	@Override
 	public void paintComponent(Graphics g) {
@@ -25,17 +28,10 @@ public class ConverterPanel extends JPanel{
 		g.setColor(Color.YELLOW);
 		g.fillRect(200, 215, 200, 200);
 		
-		paintText(g);
+		//paintText(g);
 	}
 	
-	private void paintText(Graphics g) {
-		// after user input
-		
-		g.setColor(Color.BLACK);
-		g.drawString("0 ft", 100, 20);
-		g.drawString("0 m", 305, 20);
-		g.drawString("0", 200, 225);
-		
+	public void textAreaPositions() {
 	}
-
+	
 }
