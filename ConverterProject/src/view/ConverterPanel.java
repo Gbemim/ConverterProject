@@ -6,9 +6,9 @@ import javax.swing.JTextArea;
 import java.awt.*;
 
 public class ConverterPanel extends JPanel {
-	JTextArea greenArea = new JTextArea("0",15,22);
-	JTextArea yellowArea = new JTextArea("0",15,22);
-	JTextArea orangeArea = new JTextArea("0",15,22);
+	JTextArea greenArea = new JTextArea("0",14,21);
+	JTextArea yellowArea = new JTextArea("0",14,21);
+	JTextArea orangeArea = new JTextArea("0",14,21);
 	
 	public ConverterPanel() {
 		setTextColors();
