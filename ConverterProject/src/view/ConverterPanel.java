@@ -14,6 +14,7 @@ public class ConverterPanel extends JPanel {
 		setTextColors();
 		orangeArea.setEditable(false);
 		greenArea.setEditable(false);
+		yellowArea.getDocument().putProperty("filterNewlines", Boolean.TRUE); // creates space instead of new line
 		add(greenArea);
 		add(orangeArea);
 		add(yellowArea);
@@ -30,5 +31,9 @@ public class ConverterPanel extends JPanel {
 		yellowArea.setBackground(Color.YELLOW);
 		orangeArea.setBackground(Color.ORANGE);
 	}
+	
+	public JTextArea getOrangeArea() { return orangeArea; }
+	public JTextArea getYellowArea() { return yellowArea; }
+	public JTextArea getGreenArea() { return greenArea; }
 	
 }

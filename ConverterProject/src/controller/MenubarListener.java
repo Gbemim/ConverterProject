@@ -19,7 +19,9 @@ public class MenubarListener implements ActionListener {
 		//SoccerGame soccerGame = gamePanel.getGame(); 
 		switch (e.getActionCommand()) {
 			case "SAVE":
-				// SAVE USER INPUT
+				float userInputInCM = Float.parseFloat(converterPanel.getYellowArea().getText().trim());
+				converterPanel.getGreenArea().setText("" + userInputInCM/30.48 + " ft");
+				converterPanel.getOrangeArea().setText("" + userInputInCM/100 + " m");
 				break;
 			default:
 				throw new RuntimeException("Invalid action command " + e.getActionCommand());
