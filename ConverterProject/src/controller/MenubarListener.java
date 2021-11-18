@@ -5,6 +5,8 @@ import view.ConverterPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.ValueToConvert;
+
 public class MenubarListener implements ActionListener {
 
 	private final ConverterPanel converterPanel;
@@ -20,8 +22,10 @@ public class MenubarListener implements ActionListener {
 		switch (e.getActionCommand()) {
 			case "SAVE":
 				float userInputInCM = Float.parseFloat(converterPanel.getYellowArea().getText().trim());
-				converterPanel.getGreenArea().setText("" + userInputInCM/30.48 + " ft");
-				converterPanel.getOrangeArea().setText("" + userInputInCM/100 + " m");
+				
+				converterPanel.getGreenArea().setText(ValueToConvert.cmToFeet(userInputInCM));
+				converterPanel.getOrangeArea().setText(ValueToConvert.cmToMeters(userInputInCM));
+				
 				break;
 			default:
 				throw new RuntimeException("Invalid action command " + e.getActionCommand());
