@@ -2,9 +2,6 @@ package model;
 
 public class ValueToConvert {
 	
-	public ValueToConvert() {
-	}
-	
 	public static String cmToFeet(double cm) {
 		return Double.toString(cm/30.48) + " ft";
 	}
