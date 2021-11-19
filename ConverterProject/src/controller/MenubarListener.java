@@ -16,12 +16,24 @@ public class MenubarListener implements ActionListener {
 	ValueToConvert valueModel;
 	private final ConverterPanel panel;
 	
+	/*
+	 * This is a constructor which sets up a main panel
+	 * and initializes a class for converting values.
+	 * 
+	 *  @param converterPanel the main interface for the application
+	 */
 	public MenubarListener(ConverterPanel converterPanel) {
 		this.panel = converterPanel;
 		valueModel = new ValueToConvert(converterPanel);
 	}
 
-
+	/*
+	 * Invoked when an action occurs.
+	 * When a user clicked a save button on the menu bar,
+	 * this method would be called and obtain a user input. 
+	 * 
+	 * @param e an action which is always a click command
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {

@@ -10,6 +10,9 @@ public class ConverterPanel extends JPanel {
 	JTextArea meterConversionArea = new JTextArea("0",14,21);
 	JTextArea centimetersConversionArea = new JTextArea("0",14,21);
 	
+	/*
+	 * This is a default constructor for the three JTextAreas.
+	 */
 	public ConverterPanel() {
 		setTextColors();
 		meterConversionArea.setEditable(false);
@@ -21,19 +24,44 @@ public class ConverterPanel extends JPanel {
 
 	}
 	
+	/*
+	 * This paints the major components on the panel.
+	 * 
+	 * @param g
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 	}
 	
+	/*
+	 * This sets up the colors of each JTextArea's background.
+	 */
 	public void setTextColors() {
 		feetConversionArea.setBackground(Color.GREEN);
 		centimetersConversionArea.setBackground(Color.YELLOW);
 		meterConversionArea.setBackground(Color.ORANGE);
 	}
 	
+	/*
+	 * This obtains a JTextArea which is for converting to meters.
+	 * 
+	 * @return the area for meters 
+	 */
 	public JTextArea getMeterArea() { return meterConversionArea; }
+	
+	/*
+	 * This obtains a JTextArea for the user input.
+	 * 
+	 * @return the area for the user input
+	 */
 	public JTextArea getCmArea() { return centimetersConversionArea; }
+	
+	/*
+	 * This obtains a JTextArea which is for converting to feet.
+	 * 
+	 * @return the area for feet 
+	 */
 	public JTextArea getFeetArea() { return feetConversionArea; }
 	
 }

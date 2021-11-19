@@ -17,6 +17,10 @@ public class ConverterFrame extends JFrame{
 	MenubarListener menubarListener = new MenubarListener(panel);
 	ConverterMenuBar menuBar = new ConverterMenuBar(menubarListener);
 	
+	/*
+	 * This is a default constructor to initialize the whole interface
+	 * with a main panel and menu bar.
+	 */
 	public ConverterFrame() {
 		add(panel);
 		setJMenuBar(menuBar);
