@@ -6,18 +6,18 @@ import javax.swing.JTextArea;
 import java.awt.*;
 
 public class ConverterPanel extends JPanel {
-	JTextArea greenArea = new JTextArea("0",14,21);
-	JTextArea orangeArea = new JTextArea("0",14,21);
-	JTextArea yellowArea = new JTextArea("0",14,21);
+	JTextArea feetConversionArea = new JTextArea("0",14,21);
+	JTextArea meterConversionArea = new JTextArea("0",14,21);
+	JTextArea centimetersConversionArea = new JTextArea("0",14,21);
 	
 	public ConverterPanel() {
 		setTextColors();
-		orangeArea.setEditable(false);
-		greenArea.setEditable(false);
-		yellowArea.getDocument().putProperty("filterNewlines", Boolean.TRUE); // creates space instead of new line
-		add(greenArea);
-		add(orangeArea);
-		add(yellowArea);
+		meterConversionArea.setEditable(false);
+		feetConversionArea.setEditable(false);
+		centimetersConversionArea.getDocument().putProperty("filterNewlines", Boolean.TRUE); // creates space instead of new line
+		add(feetConversionArea);
+		add(meterConversionArea);
+		add(centimetersConversionArea);
 
 	}
 	
@@ -27,13 +27,13 @@ public class ConverterPanel extends JPanel {
 	}
 	
 	public void setTextColors() {
-		greenArea.setBackground(Color.GREEN);
-		yellowArea.setBackground(Color.YELLOW);
-		orangeArea.setBackground(Color.ORANGE);
+		feetConversionArea.setBackground(Color.GREEN);
+		centimetersConversionArea.setBackground(Color.YELLOW);
+		meterConversionArea.setBackground(Color.ORANGE);
 	}
 	
-	public JTextArea getOrangeArea() { return orangeArea; }
-	public JTextArea getYellowArea() { return yellowArea; }
-	public JTextArea getGreenArea() { return greenArea; }
+	public JTextArea getMeterArea() { return meterConversionArea; }
+	public JTextArea getCmArea() { return centimetersConversionArea; }
+	public JTextArea getFeetArea() { return feetConversionArea; }
 	
 }
