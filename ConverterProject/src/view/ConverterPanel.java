@@ -14,8 +14,8 @@ public class ConverterPanel extends JPanel {
 	 * This is a default constructor for the three JTextAreas.
 	 */
 	public ConverterPanel() {
-		feetConversionArea = new JTextArea("0",14,21);
-		meterConversionArea = new JTextArea("0",14,21);
+		feetConversionArea = new JTextArea("0 ft",14,21);
+		meterConversionArea = new JTextArea("0 m",14,21);
 		centimetersConversionArea = new JTextArea("0",14,21);
 		
 		setTextColors();
