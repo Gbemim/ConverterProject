@@ -6,14 +6,18 @@ import javax.swing.JTextArea;
 import java.awt.*;
 
 public class ConverterPanel extends JPanel {
-	JTextArea feetConversionArea = new JTextArea("0",14,21);
-	JTextArea meterConversionArea = new JTextArea("0",14,21);
-	JTextArea centimetersConversionArea = new JTextArea("0",14,21);
+	private JTextArea feetConversionArea;
+	private JTextArea meterConversionArea;
+	private JTextArea centimetersConversionArea;
 	
 	/*
 	 * This is a default constructor for the three JTextAreas.
 	 */
 	public ConverterPanel() {
+		feetConversionArea = new JTextArea("0",14,21);
+		meterConversionArea = new JTextArea("0",14,21);
+		centimetersConversionArea = new JTextArea("0",14,21);
+		
 		setTextColors();
 		meterConversionArea.setEditable(false);
 		feetConversionArea.setEditable(false);

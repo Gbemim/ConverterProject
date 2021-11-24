@@ -4,12 +4,12 @@ import view.ConverterPanel;
 
 /* The model comprises a class named ValueToConvert that
  1) encapsulates the values in centimeters that are specified by the user in the CentimetersConversionArea JTextArea.
- 2) When the ValueToConvert‘state changes, ValueToConvert notifies FeetConversionArea and
+ 2) When the ValueToConvertï¿½state changes, ValueToConvert notifies FeetConversionArea and
 MeterConversionArea. */
 
 public class ValueToConvert {
 	//Satisfies 1)
-	double cm; 
+	private double cm; 
 	private final ConverterPanel panel;
 	
 	/*

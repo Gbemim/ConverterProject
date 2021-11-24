@@ -1,12 +1,7 @@
 package main;
 
-//import controller.NewValueToConvert;
-import controller.MenubarListener;
-import view.ConverterFrame;
-import view.ConverterMenuBar;
-import view.ConverterPanel;
 
-import javax.swing.*;
+import view.ConverterFrame;
 
 /*
  * This is a main class for the project.

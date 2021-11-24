@@ -13,7 +13,7 @@ import model.ValueToConvert;
 */
 
 public class MenubarListener implements ActionListener {
-	ValueToConvert valueModel;
+	private ValueToConvert valueModel;
 	private final ConverterPanel panel;
 	
 	/*
