@@ -13,35 +13,27 @@ import model.ValueToConvert;
 */
 
 public class MenubarListener implements ActionListener {
-	private ValueToConvert valueModel;
+	ValueToConvert valueModel;
 	private final ConverterPanel panel;
 	
-	/*
-	 * This is a constructor which sets up a main panel
-	 * and initializes a class for converting values.
-	 * 
-	 *  @param converterPanel the main interface for the application
-	 */
 	public MenubarListener(ConverterPanel converterPanel) {
 		this.panel = converterPanel;
 		valueModel = new ValueToConvert(converterPanel);
 	}
 
-	/*
-	 * Invoked when an action occurs.
-	 * When a user clicked a save button on the menu bar,
-	 * this method would be called and obtain a user input. 
-	 * 
-	 * @param e an action which is always a click command
-	 */
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
 			case "SAVE":
-				//Satisfies 1)
-				float userInputInCM = Float.parseFloat(panel.getCmArea().getText().trim());
-				//Satisfies 2)
-				valueModel.updateValue(userInputInCM);
+				String userInputInCM = panel.getCmArea().getText().trim();
+				
+				//updates model only if its a whole number
+				if (userInputInCM.matches("^\\d+$")) {
+					valueModel.updateValue(Integer.parseInt(userInputInCM));
+				} else {
+					panel.getCmArea().setText("");
+				}
 				break;
 			default:
 				throw new RuntimeException("Invalid action command " + e.getActionCommand());
