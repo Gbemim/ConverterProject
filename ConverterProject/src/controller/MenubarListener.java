@@ -5,6 +5,8 @@ import view.ConverterPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import org.w3c.dom.bootstrap.DOMImplementationRegistry;
+
 import model.ValueToConvert;
 
 /* The Controller comprises a class that
@@ -15,7 +17,7 @@ import model.ValueToConvert;
 public class MenubarListener implements ActionListener {
 	private ValueToConvert valueModel;
 	private final ConverterPanel panel;
-	
+	private PanelObserver panelObserver;
 	/*
 	 * This is a constructor which sets up a main panel
 	 * and initializes a class for converting values.
@@ -24,7 +26,9 @@ public class MenubarListener implements ActionListener {
 	 */
 	public MenubarListener(ConverterPanel converterPanel) {
 		this.panel = converterPanel;
-		valueModel = new ValueToConvert(converterPanel);
+		panelObserver = new PanelObserver(converterPanel);
+		valueModel = new ValueToConvert(0);
+		valueModel.addObserver(panelObserver);
 	}
 	
 	/*
@@ -42,7 +46,7 @@ public class MenubarListener implements ActionListener {
 				
 				//updates model only if its a whole number
 				if (userInputInCM.matches("^\\d+$")) {
-					valueModel.updateValue(Integer.parseInt(userInputInCM));
+					valueModel.getValue(Integer.parseInt(userInputInCM));
 				} else {
 					panel.getCmArea().setText("");
 				}

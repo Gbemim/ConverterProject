@@ -1,5 +1,7 @@
 package model;
 
+import controller.Observer;
+import controller.Subject;
 import view.ConverterPanel;
 
 /* The model comprises a class named ValueToConvert that
@@ -7,10 +9,10 @@ import view.ConverterPanel;
  2) When the ValueToConvert�state changes, ValueToConvert notifies FeetConversionArea and
 MeterConversionArea. */
 
-public class ValueToConvert {
+public class ValueToConvert implements Subject {
 	//Satisfies 1)
-	private double cm; 
-	private final ConverterPanel panel;
+	private double cm = 0; 
+	Observer conversionObserver;
 	
 	/*
 	 * This is a constructor which sets up a main panel
@@ -18,8 +20,8 @@ public class ValueToConvert {
 	 * 
 	 *  @param converterPanel the main interface for the application
 	 */
-	public ValueToConvert(ConverterPanel converterPanel) {
-		this.panel = converterPanel;
+	public ValueToConvert(double startingCM) {
+		cm = startingCM;
 	}
 	
 	/*
@@ -28,20 +30,11 @@ public class ValueToConvert {
 	 * 
 	 * @param cm a new value in centimeters
 	 */
-	public void updateValue(double cm) {
+	public void getValue(double cm) {
 		this.cm = cm;
-		notifyAreas();
+		notify(cmToMeter(cm) + " m",cmToFeet(cm) + " ft");
 		}
-	
-	//Satisfies 2)
-	/*
-	 * This notifies two JTextAreas to update converted values.
-	 */
-	public void notifyAreas() {
-		panel.getFeetArea().setText(cmToFeet(cm) + " ft");	
-		panel.getMeterArea().setText(cmToMeter(cm) + " m");
-	}
-	
+
 	/*
 	 * This is a converter from the input value in cm to a value in feet.
 	 * 
@@ -60,6 +53,24 @@ public class ValueToConvert {
 	 */
 	public String cmToMeter(double cm) {
 		return Double.toString(cm/100);
+	}
+
+	@Override
+	public void addObserver(Observer o) {
+		// TODO Auto-generated method stub
+		conversionObserver = o;
+	}
+
+	@Override
+	public void removeObserver(Observer o) {
+		// TODO Auto-generated method stub
+		conversionObserver = null;
+	}
+
+	@Override
+	public void notify(String meters, String feet) {
+		// TODO Auto-generated method stub
+		conversionObserver.update(meters, feet);
 	}
 	
 	
