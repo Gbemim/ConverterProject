@@ -8,7 +8,7 @@ import controller.Observer;
 import controller.Subject;
 
 public class FeetConversionArea extends JTextArea implements Observer{
-	//ConverterPanel panel;
+	
 	Subject subject;
 	double cm;
 	
@@ -26,7 +26,7 @@ public class FeetConversionArea extends JTextArea implements Observer{
 	} 
 	
 	public String conversion() {
-		return Double.toString(cm/30.48);
+		return Double.toString(cm/30.48)+ " ft";
 	}
 
 }

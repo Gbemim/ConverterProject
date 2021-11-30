@@ -8,12 +8,7 @@ import controller.Subject;
 public class MeterConversionArea extends JTextArea implements Observer{
 	Subject subject;
 	double cm;
-/*
-	public MeterConversionArea(Subject sub) {
-		subject = sub;
-		textAreaSettings();
-	}
-*/
+	
 	public MeterConversionArea(String str, int r, int c) {
 		super(str,r,c);
 	}
@@ -29,7 +24,7 @@ public class MeterConversionArea extends JTextArea implements Observer{
 	}
 	
 	public String conversion() {
-		return Double.toString(cm/100);
+		return Double.toString(cm/100)+ " m";
 	}
 	
 }

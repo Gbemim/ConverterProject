@@ -26,8 +26,6 @@ public class ValueToConvert extends Subject {
 		pan.getFeetConversionArea().setSubject(this);
 		addObserver(pan.getFeetConversionArea());
 		addObserver(pan.getMeterConversionArea());
-		//new MeterConversionArea(this);
-		//new FeetConversionArea(this);
 		notifyObjects();
 	}
 	
@@ -38,7 +36,9 @@ public class ValueToConvert extends Subject {
 	 * @param cm a new value in centimeters
 	 */
 	public void setValue(double cm) {
-		this.cm = cm;
+		this.cm = cm;		
+		notifyObjects();
+
 	}
 	
 	public double getValue() {
