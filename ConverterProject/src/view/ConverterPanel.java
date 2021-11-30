@@ -3,8 +3,6 @@ package view;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import controller.Observer;
-
 import java.awt.*;
 
 public class ConverterPanel extends JPanel {
@@ -48,17 +46,8 @@ public class ConverterPanel extends JPanel {
 	
 	public MeterConversionArea getMeterConversionArea() { return meterConversionArea;}
 
-	public void setMeterArea(MeterConversionArea meterArea) { meterConversionArea = meterArea; }
-	
-
 	public JTextArea getCmArea() { return centimetersConversionArea; }
 	
-	/*
-	 * This obtains a JTextArea which is for converting to feet.
-	 * 
-	 * @return the area for feet 
-	 */
-	public void setFeetArea( FeetConversionArea ftArea) {feetConversionArea = ftArea; }
 	
 }
 

@@ -2,7 +2,6 @@ package view;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;
-//import java.awt.event.KeyEvent;
 
 public class ConverterMenuBar extends JMenuBar{
 	

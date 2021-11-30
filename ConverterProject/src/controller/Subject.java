@@ -5,19 +5,19 @@ import java.util.List;
 
 public abstract class Subject {
 	
-	public List<Observer> observerList = new ArrayList<Observer>();
+	private List<Observer> observerList = new ArrayList<Observer>();
 	
 	public abstract double getValue();
 	
-	public void addObserver(Observer o) {
+	protected void addObserver(Observer o) {
 	observerList.add(o);
 	}
 	
-	public void removeObserver(Observer o) {
+	protected void removeObserver(Observer o) {
 		observerList.remove(o);
 	}
 	
-	public void notifyObjects() {
+	protected void notifyObjects() {
 		for (Observer o : observerList) {
 			o.update();
 	}

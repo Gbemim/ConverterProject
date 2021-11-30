@@ -10,22 +10,18 @@ import view.ConverterPanel;
 MeterConversionArea. */
 
 public class ValueToConvert extends Subject {
-	private double cm;
-	ConverterPanel panel;
-	
+	private double cm = 0;	
 	/*
 	 * This is a constructor which sets up a main panel
 	 * and initializes a class for converting values.
 	 * 
 	 *  @param converterPanel the main interface for the application
 	 */
-	public ValueToConvert(ConverterPanel pan) {
-		cm = 0;
-		panel = pan;
-		pan.getMeterConversionArea().setSubject(this);
-		pan.getFeetConversionArea().setSubject(this);
-		addObserver(pan.getFeetConversionArea());
-		addObserver(pan.getMeterConversionArea());
+	public ValueToConvert(ConverterPanel panel) {
+		panel.getMeterConversionArea().setSubject(this);
+		panel.getFeetConversionArea().setSubject(this);
+		addObserver(panel.getFeetConversionArea());
+		addObserver(panel.getMeterConversionArea());
 		notifyObjects();
 	}
 	
@@ -44,28 +40,5 @@ public class ValueToConvert extends Subject {
 	public double getValue() {
 		return cm;
 		}
-
-	/*
-	 * This is a converter from the input value in cm to a value in feet.
-	 * 
-	 * @param cm a new value to convert
-	 * @return a converted value in string
-	 */
-	public String cmToFeet(double cm) {
-		return Double.toString(cm/30.48);
-	}
-	
-	/*
-	 * This is a converter from the input value in cm to a value in meters.
-	 * 
-	 * @param cm a new value to convert
-	 * @return a converted value in string
-	 */
-	public String cmToMeter(double cm) {
-		return Double.toString(cm/100);
-	}
-
-
-	
 	
 }
