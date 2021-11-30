@@ -3,25 +3,31 @@ package view;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import controller.Observer;
+
 import java.awt.*;
 
 public class ConverterPanel extends JPanel {
-	private JTextArea feetConversionArea;
-	private JTextArea meterConversionArea;
+	private FeetConversionArea feetConversionArea;
+	private MeterConversionArea meterConversionArea;
 	private JTextArea centimetersConversionArea;
 	
 	/*
 	 * This is a default constructor for the three JTextAreas.
 	 */
 	public ConverterPanel() {
-		feetConversionArea = new JTextArea("0 ft",14,21);
-		meterConversionArea = new JTextArea("0 m",14,21);
 		centimetersConversionArea = new JTextArea("0",14,21);
-		
-		setTextColors();
-		meterConversionArea.setEditable(false);
-		feetConversionArea.setEditable(false);
+		centimetersConversionArea.setBackground(Color.YELLOW);
 		centimetersConversionArea.getDocument().putProperty("filterNewlines", Boolean.TRUE); // creates space instead of new line
+		
+		feetConversionArea = new FeetConversionArea("0 ft",14,21);
+		feetConversionArea.setEditable(false);
+		feetConversionArea.setBackground(Color.GREEN);
+		
+		meterConversionArea = new MeterConversionArea("0 m",14,21);
+		meterConversionArea.setEditable(false);
+		meterConversionArea.setBackground(Color.ORANGE);
+		
 		add(feetConversionArea);
 		add(meterConversionArea);
 		add(centimetersConversionArea);
@@ -38,27 +44,13 @@ public class ConverterPanel extends JPanel {
 		super.paintComponent(g);
 	}
 	
-	/*
-	 * This sets up the colors of each JTextArea's background.
-	 */
-	public void setTextColors() {
-		feetConversionArea.setBackground(Color.GREEN);
-		centimetersConversionArea.setBackground(Color.YELLOW);
-		meterConversionArea.setBackground(Color.ORANGE);
-	}
+	public FeetConversionArea getFeetConversionArea() { return feetConversionArea;}
 	
-	/*
-	 * This obtains a JTextArea which is for converting to meters.
-	 * 
-	 * @return the area for meters 
-	 */
-	public JTextArea getMeterArea() { return meterConversionArea; }
+	public MeterConversionArea getMeterConversionArea() { return meterConversionArea;}
+
+	public void setMeterArea(MeterConversionArea meterArea) { meterConversionArea = meterArea; }
 	
-	/*
-	 * This obtains a JTextArea for the user input.
-	 * 
-	 * @return the area for the user input
-	 */
+
 	public JTextArea getCmArea() { return centimetersConversionArea; }
 	
 	/*
@@ -66,6 +58,9 @@ public class ConverterPanel extends JPanel {
 	 * 
 	 * @return the area for feet 
 	 */
-	public JTextArea getFeetArea() { return feetConversionArea; }
+	public void setFeetArea( FeetConversionArea ftArea) {feetConversionArea = ftArea; }
 	
 }
+
+
+

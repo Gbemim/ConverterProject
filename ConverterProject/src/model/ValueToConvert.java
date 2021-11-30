@@ -1,18 +1,17 @@
 package model;
 
-import controller.Observer;
 import controller.Subject;
 import view.ConverterPanel;
+
 
 /* The model comprises a class named ValueToConvert that
  1) encapsulates the values in centimeters that are specified by the user in the CentimetersConversionArea JTextArea.
  2) When the ValueToConvert�state changes, ValueToConvert notifies FeetConversionArea and
 MeterConversionArea. */
 
-public class ValueToConvert implements Subject {
-	//Satisfies 1)
-	private double cm = 0; 
-	Observer conversionObserver;
+public class ValueToConvert extends Subject {
+	private double cm;
+	ConverterPanel panel;
 	
 	/*
 	 * This is a constructor which sets up a main panel
@@ -20,8 +19,16 @@ public class ValueToConvert implements Subject {
 	 * 
 	 *  @param converterPanel the main interface for the application
 	 */
-	public ValueToConvert(double startingCM) {
-		cm = startingCM;
+	public ValueToConvert(ConverterPanel pan) {
+		cm = 0;
+		panel = pan;
+		pan.getMeterConversionArea().setSubject(this);
+		pan.getFeetConversionArea().setSubject(this);
+		addObserver(pan.getFeetConversionArea());
+		addObserver(pan.getMeterConversionArea());
+		//new MeterConversionArea(this);
+		//new FeetConversionArea(this);
+		notifyObjects();
 	}
 	
 	/*
@@ -30,9 +37,12 @@ public class ValueToConvert implements Subject {
 	 * 
 	 * @param cm a new value in centimeters
 	 */
-	public void getValue(double cm) {
+	public void setValue(double cm) {
 		this.cm = cm;
-		notify(cmToMeter(cm) + " m",cmToFeet(cm) + " ft");
+	}
+	
+	public double getValue() {
+		return cm;
 		}
 
 	/*
@@ -55,23 +65,7 @@ public class ValueToConvert implements Subject {
 		return Double.toString(cm/100);
 	}
 
-	@Override
-	public void addObserver(Observer o) {
-		// TODO Auto-generated method stub
-		conversionObserver = o;
-	}
 
-	@Override
-	public void removeObserver(Observer o) {
-		// TODO Auto-generated method stub
-		conversionObserver = null;
-	}
-
-	@Override
-	public void notify(String meters, String feet) {
-		// TODO Auto-generated method stub
-		conversionObserver.update(meters, feet);
-	}
 	
 	
 }

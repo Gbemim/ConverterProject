@@ -17,7 +17,6 @@ import model.ValueToConvert;
 public class MenubarListener implements ActionListener {
 	private ValueToConvert valueModel;
 	private final ConverterPanel panel;
-	private PanelObserver panelObserver;
 	/*
 	 * This is a constructor which sets up a main panel
 	 * and initializes a class for converting values.
@@ -26,9 +25,7 @@ public class MenubarListener implements ActionListener {
 	 */
 	public MenubarListener(ConverterPanel converterPanel) {
 		this.panel = converterPanel;
-		panelObserver = new PanelObserver(converterPanel);
-		valueModel = new ValueToConvert(0);
-		valueModel.addObserver(panelObserver);
+		valueModel = new ValueToConvert(converterPanel);
 	}
 	
 	/*
@@ -38,6 +35,7 @@ public class MenubarListener implements ActionListener {
 	 * 
 	 * @param e an action which is always a click command
 	 */
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		switch (e.getActionCommand()) {
@@ -46,7 +44,7 @@ public class MenubarListener implements ActionListener {
 				
 				//updates model only if its a whole number
 				if (userInputInCM.matches("^\\d+$")) {
-					valueModel.getValue(Integer.parseInt(userInputInCM));
+					valueModel.setValue(Integer.parseInt(userInputInCM));
 				} else {
 					panel.getCmArea().setText("");
 				}

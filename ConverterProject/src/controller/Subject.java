@@ -1,10 +1,25 @@
 package controller;
 
-public interface Subject {
+import java.util.ArrayList;
+import java.util.List;
 
-	public void addObserver(Observer o);
+public abstract class Subject {
 	
-	public void removeObserver(Observer o);
+	public List<Observer> observerList = new ArrayList<Observer>();
 	
-	public void notify(String meters, String feet);
+	public abstract double getValue();
+	
+	public void addObserver(Observer o) {
+	observerList.add(o);
+	}
+	
+	public void removeObserver(Observer o) {
+		observerList.remove(o);
+	}
+	
+	public void notifyObjects() {
+		for (Observer o : observerList) {
+			o.update();
+	}
+}
 }

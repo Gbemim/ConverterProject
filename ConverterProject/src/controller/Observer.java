@@ -1,7 +1,8 @@
 package controller;
 
 public interface Observer {
-
-	public void update(String meters, String feet);
+	
+	//protected Subject subject;
+	public abstract void update();
 	
 }
