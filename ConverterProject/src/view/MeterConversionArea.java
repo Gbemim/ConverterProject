@@ -2,9 +2,6 @@ package view;
 
 import javax.swing.JTextArea;
 
-import controller.Observer;
-import controller.Subject;
-
 /*
  * This is one of Concrete Observer for the Observer design pattern
  */

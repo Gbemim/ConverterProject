@@ -2,6 +2,9 @@ package controller;
 
 import javax.swing.JTextArea;
 
+import view.Observer;
+import view.Subject;
+
 public class CentimetersConversionArea extends JTextArea implements Observer {
 	
 	private Subject subject;
