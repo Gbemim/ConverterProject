@@ -29,6 +29,7 @@ public class ValueToConvert extends Subject {
 	
 	/*
 	 * This obtains a new input value and assigns it to cm.
+	 * If received String is not valid input, does not assign value to cm and empties cmArea string.
 	 * It also calls a method to notify other JTextAreas with the updated value.
 	 * 
 	 * @param cm a new value in centimeters
