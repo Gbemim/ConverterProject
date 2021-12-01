@@ -1,7 +1,7 @@
 package model;
 
-import controller.Subject;
 import view.ConverterPanel;
+import view.Subject;
 
 
 /* The model comprises a class named ValueToConvert that
@@ -10,6 +10,7 @@ import view.ConverterPanel;
 MeterConversionArea. */
 
 public class ValueToConvert extends Subject {
+	ConverterPanel panel;
 	private double cm = 0;	
 	/*
 	 * This is a constructor which sets up a main panel
@@ -17,7 +18,8 @@ public class ValueToConvert extends Subject {
 	 * 
 	 *  @param converterPanel the main interface for the application
 	 */
-	public ValueToConvert(ConverterPanel panel) {
+	public ValueToConvert(ConverterPanel p) {
+		panel = p;
 		panel.getMeterConversionArea().setSubject(this);
 		panel.getFeetConversionArea().setSubject(this);
 		addObserver(panel.getFeetConversionArea());
@@ -27,12 +29,19 @@ public class ValueToConvert extends Subject {
 	
 	/*
 	 * This obtains a new input value and assigns it to cm.
+	 * If received String is not valid input, does not assign value to cm and empties cmArea string.
 	 * It also calls a method to notify other JTextAreas with the updated value.
 	 * 
 	 * @param cm a new value in centimeters
 	 */
-	public void setValue(double cm) {
-		this.cm = cm;		
+	public void save(String userInput) {
+		
+		//updates model only if its a whole number
+		if (userInput.matches("^\\d+$")) {
+			this.cm = Integer.parseInt(userInput);
+		} else {
+			panel.getCmArea().setText("");
+		}	
 		notifyObjects();
 	}
 	

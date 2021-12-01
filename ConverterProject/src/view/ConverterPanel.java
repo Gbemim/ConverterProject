@@ -3,18 +3,20 @@ package view;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import controller.CentimetersConversionArea;
+
 import java.awt.*;
 
 public class ConverterPanel extends JPanel {
 	private FeetConversionArea feetConversionArea;
 	private MeterConversionArea meterConversionArea;
-	private JTextArea centimetersConversionArea;
+	private CentimetersConversionArea centimetersConversionArea;
 	
 	/*
 	 * This is a default constructor for the three JTextAreas.
 	 */
 	public ConverterPanel() {
-		centimetersConversionArea = new JTextArea("0",14,21);
+		centimetersConversionArea = new CentimetersConversionArea("0",14,21);
 		centimetersConversionArea.setBackground(Color.YELLOW);
 		centimetersConversionArea.getDocument().putProperty("filterNewlines", Boolean.TRUE); // creates space instead of new line
 		
@@ -61,7 +63,7 @@ public class ConverterPanel extends JPanel {
 	 * 
 	 * @return area for a user input
 	 */
-	public JTextArea getCmArea() { return centimetersConversionArea;}
+	public CentimetersConversionArea getCmArea() { return centimetersConversionArea;}
 }
 
 

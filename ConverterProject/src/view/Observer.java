@@ -1,4 +1,4 @@
-package controller;
+package view;
 
 /*
  * This interface is an Observer for the Observer design pattern
