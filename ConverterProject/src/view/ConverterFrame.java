@@ -2,6 +2,8 @@ package view;
 
 import javax.swing.*;
 
+import controller.ActionListenerCommand;
+import controller.ActionSave;
 import controller.MenubarListener;
 
 /* The view package consists in a Jframe 
@@ -21,9 +23,10 @@ public class ConverterFrame extends JFrame{
 	 */
 	public ConverterFrame() {
 		panel = new ConverterPanel();
-		menubarListener = new MenubarListener(panel);
+		//menubarListener = new MenubarListener(panel);
+		ActionListenerCommand clickSave = new ActionSave(this);
 		menuBar = new ConverterMenuBar(menubarListener);
-		
+		//menuBar = new Menubar)
 		add(panel);
 		setJMenuBar(menuBar);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
