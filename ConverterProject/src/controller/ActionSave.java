@@ -1,19 +1,28 @@
 package controller;
 
-import javax.swing.text.Document;
 
-import view.ConverterFrame;
+import model.ValueToConvert;
+import view.ConverterPanel;
 
 public class ActionSave implements ActionListenerCommand {
-	private ConverterFrame doc;
+	private ConverterPanel document;
+	private ValueToConvert valueModel;
 	
-	public ActionSave(ConverterFrame converterFrame) {
-		this.doc = converterFrame;
+	public ActionSave(ConverterPanel converterPanel) {
+		this.document = converterPanel;
+		valueModel = new ValueToConvert(converterPanel);
+
 	}
 
 	@Override
 	public void execute() {
-		// TODO Auto-generated method stub
+		String userInputInCM = document.getCmArea().getText().trim();
 		
+		//updates model only if its a whole number
+		if (userInputInCM.matches("^\\d+$")) {
+			valueModel.setValue(Integer.parseInt(userInputInCM));
+		} else {
+			document.getCmArea().setText("");
+		}	
 	}
 }

@@ -4,7 +4,6 @@ import javax.swing.*;
 
 import controller.ActionListenerCommand;
 import controller.ActionSave;
-import controller.MenubarListener;
 
 /* The view package consists in a Jframe 
   1)that comprises a JPanel and a JMenuBar.
@@ -12,21 +11,18 @@ import controller.MenubarListener;
 */
 
 public class ConverterFrame extends JFrame{
-	//Satisfies 1 and 2 (within ConverterPanel)
 	private ConverterPanel panel;
-	private MenubarListener menubarListener;
 	private ConverterMenuBar menuBar;
-	
+	public ActionListenerCommand clickSave;
 	/*
 	 * This is a default constructor to initialize the whole interface
 	 * with a main panel and menu bar.
 	 */
 	public ConverterFrame() {
 		panel = new ConverterPanel();
-		//menubarListener = new MenubarListener(panel);
-		ActionListenerCommand clickSave = new ActionSave(this);
-		menuBar = new ConverterMenuBar(menubarListener);
-		//menuBar = new Menubar)
+		clickSave = new ActionSave(panel);
+		menuBar = new ConverterMenuBar(clickSave);
+		
 		add(panel);
 		setJMenuBar(menuBar);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
