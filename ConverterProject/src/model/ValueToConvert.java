@@ -10,6 +10,7 @@ import view.ConverterPanel;
 MeterConversionArea. */
 
 public class ValueToConvert extends Subject {
+	ConverterPanel panel;
 	private double cm = 0;	
 	/*
 	 * This is a constructor which sets up a main panel
@@ -17,7 +18,8 @@ public class ValueToConvert extends Subject {
 	 * 
 	 *  @param converterPanel the main interface for the application
 	 */
-	public ValueToConvert(ConverterPanel panel) {
+	public ValueToConvert(ConverterPanel p) {
+		panel = p;
 		panel.getMeterConversionArea().setSubject(this);
 		panel.getFeetConversionArea().setSubject(this);
 		addObserver(panel.getFeetConversionArea());
@@ -31,8 +33,14 @@ public class ValueToConvert extends Subject {
 	 * 
 	 * @param cm a new value in centimeters
 	 */
-	public void setValue(double cm) {
-		this.cm = cm;		
+	public void save(String userInput) {
+		
+		//updates model only if its a whole number
+		if (userInput.matches("^\\d+$")) {
+			this.cm = Integer.parseInt(userInput);
+		} else {
+			panel.getCmArea().setText("");
+		}	
 		notifyObjects();
 	}
 	

@@ -14,15 +14,13 @@ public class ActionSave implements ActionListenerCommand {
 
 	}
 
+	/*
+	 * Retrieves the value specified by user in CentimeterConversionArea
+	 * Updates the model by passing the retrieved value
+	 */
 	@Override
 	public void execute() {
 		String userInputInCM = document.getCmArea().getText().trim();
-		
-		//updates model only if its a whole number
-		if (userInputInCM.matches("^\\d+$")) {
-			valueModel.setValue(Integer.parseInt(userInputInCM));
-		} else {
-			document.getCmArea().setText("");
-		}	
+		valueModel.save(userInputInCM);
 	}
 }
