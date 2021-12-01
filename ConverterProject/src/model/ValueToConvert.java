@@ -34,11 +34,15 @@ public class ValueToConvert extends Subject {
 	public void setValue(double cm) {
 		this.cm = cm;		
 		notifyObjects();
-
 	}
 	
+	/*
+	 * This obtains a new input value in cm.
+	 * 
+	 * @return the obtained value in centimeters
+	 */
 	public double getValue() {
 		return cm;
-		}
+	}
 	
 }

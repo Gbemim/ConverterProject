@@ -42,13 +42,26 @@ public class ConverterPanel extends JPanel {
 		super.paintComponent(g);
 	}
 	
+	/*
+	 * This obtains the area for a feet conversion
+	 * 
+	 * @return area for a feet conversion
+	 */
 	public FeetConversionArea getFeetConversionArea() { return feetConversionArea;}
 	
+	/*
+	 * This obtains the area for a meter conversion
+	 * 
+	 * @return area for a meter conversion
+	 */
 	public MeterConversionArea getMeterConversionArea() { return meterConversionArea;}
 
-	public JTextArea getCmArea() { return centimetersConversionArea; }
-	
-	
+	/*
+	 * This obtains the area for a user input
+	 * 
+	 * @return area for a user input
+	 */
+	public JTextArea getCmArea() { return centimetersConversionArea;}
 }
 
 
