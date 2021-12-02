@@ -3,7 +3,9 @@ package view;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import controller.CentimetersConversionArea;
+import model.convert.CentimetersConversionArea;
+import model.convert.FeetConversionArea;
+import model.convert.MeterConversionArea;
 
 import java.awt.*;
 

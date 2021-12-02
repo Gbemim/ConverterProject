@@ -1,7 +1,7 @@
 package model;
 
+import model.convert.Subject;
 import view.ConverterPanel;
-import view.Subject;
 
 
 /* The model comprises a class named ValueToConvert that

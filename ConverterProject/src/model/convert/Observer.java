@@ -1,4 +1,4 @@
-package view;
+package model.convert;
 
 /*
  * This interface is an Observer for the Observer design pattern

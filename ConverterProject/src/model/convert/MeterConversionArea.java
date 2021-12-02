@@ -1,4 +1,4 @@
-package view;
+package model.convert;
 
 import javax.swing.JTextArea;
 
