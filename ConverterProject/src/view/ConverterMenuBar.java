@@ -13,7 +13,7 @@ public class ConverterMenuBar extends JMenuBar{
 	/*
 	 * This is a constructor to build a structure of a menu bar.
 	 * 
-	 * @param menubarListener this would help detecting user commands
+	 * @param action this would help detecting user commands
 	 */
 	public ConverterMenuBar(ActionListenerCommand action) {
 		super();
@@ -33,7 +33,10 @@ public class ConverterMenuBar extends JMenuBar{
 		super.add(updateMenu);
 	}
 	
-	
+	/*
+	 * This is a part of a Command design pattern.
+	 * 
+	 */
 	public void clickSave() {
 		saveAction.execute();	
 	}

@@ -9,6 +9,9 @@ import model.convert.MeterConversionArea;
 
 import java.awt.*;
 
+/*
+ * This behaves as a Receiver for a Command design pattern.
+ */
 public class ConverterPanel extends JPanel {
 	private FeetConversionArea feetConversionArea;
 	private MeterConversionArea meterConversionArea;

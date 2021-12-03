@@ -16,7 +16,7 @@ public class ValueToConvert extends Subject {
 	 * This is a constructor which sets up a main panel
 	 * and initializes a class for converting values.
 	 * 
-	 *  @param converterPanel the main interface for the application
+	 *  @param p the main interface for the application
 	 */
 	public ValueToConvert(ConverterPanel p) {
 		panel = p;
@@ -32,7 +32,7 @@ public class ValueToConvert extends Subject {
 	 * If received String is not valid input, does not assign value to cm and empties cmArea string.
 	 * It also calls a method to notify other JTextAreas with the updated value.
 	 * 
-	 * @param cm a new value in centimeters
+	 * @param userInput a new value in centimeters
 	 */
 	public void save(String userInput) {
 		

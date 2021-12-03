@@ -2,6 +2,9 @@ package model.convert;
 
 import javax.swing.JTextArea;
 
+/*
+ * This class behaves as a Concrete Command for a Command design pattern.
+ */
 public class CentimetersConversionArea extends JTextArea implements Observer {
 	
 	private Subject subject;
