@@ -3,10 +3,6 @@ package view;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import model.convert.CentimetersConversionArea;
-import model.convert.FeetConversionArea;
-import model.convert.MeterConversionArea;
-
 import java.awt.*;
 
 /*

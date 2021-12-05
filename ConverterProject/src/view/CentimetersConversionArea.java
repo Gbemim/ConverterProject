@@ -1,6 +1,8 @@
-package model.convert;
+package view;
 
 import javax.swing.JTextArea;
+
+import model.Subject;
 
 /*
  * This class behaves as a Concrete Command for a Command design pattern.

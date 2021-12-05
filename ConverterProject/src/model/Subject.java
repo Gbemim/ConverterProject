@@ -1,7 +1,9 @@
-package model.convert;
+package model;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import view.Observer;
 
 /*
  * This is a Subject for the Observer design pattern

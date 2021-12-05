@@ -1,6 +1,5 @@
 package model;
 
-import model.convert.Subject;
 import view.ConverterPanel;
 
 

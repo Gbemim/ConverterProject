@@ -1,11 +1,14 @@
-package model.convert;
+package view;
 
 import javax.swing.JTextArea;
+
+import model.Subject;
 
 /*
  * This is one of Concrete Observer for the Observer design pattern
  */
-public class MeterConversionArea extends JTextArea implements Observer{
+public class FeetConversionArea extends JTextArea implements Observer {
+	
 	private Subject subject;
 	private double cm;
 	
@@ -16,7 +19,7 @@ public class MeterConversionArea extends JTextArea implements Observer{
 	 * @param r the number of rows
 	 * @param c the number of columns
 	 */
-	public MeterConversionArea(String str, int r, int c) {
+	public FeetConversionArea(String str, int r, int c) {
 		super(str,r,c);
 	}
 	
@@ -32,11 +35,10 @@ public class MeterConversionArea extends JTextArea implements Observer{
 	/*
 	 * This updates a new value based on the obtained input
 	 */
-	@Override
 	public void update() {
 		cm = subject.getValue();
 		setText(conversion());
-	}
+	} 
 	
 	/*
 	 * This converts the input in feet
@@ -44,6 +46,7 @@ public class MeterConversionArea extends JTextArea implements Observer{
 	 * @return the converted value in feet
 	 */
 	private String conversion() {
-		return Double.toString(cm/100)+ " m";
-	}	
+		return Double.toString(cm/30.48)+ " ft";
+	}
+
 }
